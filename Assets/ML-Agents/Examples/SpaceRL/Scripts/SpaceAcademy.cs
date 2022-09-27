@@ -40,11 +40,9 @@ public class SpaceAcademy : Academy
 
     public override void EnvironmentStep () {
         
-        // if (gameController.optionsOnScreen) {
-        //     agent.SetTextObs("ready");
-        // } else {
-        //     agent.SetTextObs("ready");
-        // }
+        //if (gameController.optionsOnScreen) {
+         ///   agent.SetTextObs("ready");
+        //}
 
         // if (startGame && gameController.optionsOnScreen) {
         base.EnvironmentStep();

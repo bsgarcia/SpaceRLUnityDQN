@@ -3,7 +3,16 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - agent
+  - PauseController
+  - DataController
+  - BoundaryMissed
+  - Background
+  - BoundaryShootable
+  - Bolt
+  - Opt1
+  - Opt2
   layers:
   - Default
   - TransparentFX

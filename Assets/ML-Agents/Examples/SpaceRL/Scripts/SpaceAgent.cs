@@ -52,6 +52,7 @@ public class SpaceAgent : Agent
         // myArea = area.GetComponent<BananaArea>();
         rayPer = playerController.GetComponent<RayPerception>();
         myAcademy = myAcademyObj.GetComponent<SpaceAcademy>();
+        base.SetTextObs("ready");
         // CollectObservations();
     }
 

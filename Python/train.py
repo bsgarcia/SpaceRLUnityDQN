@@ -26,6 +26,7 @@ import numpy as np
 from collections import deque
 from dqn_agent import Agent
 from unityagents import UnityEnvironment
+import logging
 
 """
 ###################################
@@ -41,12 +42,12 @@ STEP 1: Set the Training Parameters
         (here we set the solved_score a little higher than 13 [i.e., 14] to ensure robust learning).
     """
 num_episodes=2000
-epsilon=1.0
+epsilon=.2
 epsilon_min=0.05
-epsilon_decay=0.99
+epsilon_decay=0.001
 scores = []
 scores_average_window = 100      
-solved_score = 14                 
+solved_score = 140000                 
 
 
 """
@@ -169,7 +170,6 @@ for i_episode in range(1, num_episodes+1):
 
     # set the initial episode score to zero.
     score = 0
-
     # Run the episode training loop;
     # At each loop step take an epsilon-greedy action as a function of the current state observations
     # Based on the resultant environmental state (next_state) and reward received update the Agent network

@@ -8,6 +8,7 @@ Code expanded and adapted from code examples provided by Udacity DRL Team, 2018.
 """
 
 # Import Required Packages
+from asyncio.log import logger
 import torch
 import torch.nn.functional as F
 import torch.optim as optim
@@ -116,9 +117,11 @@ class Agent():
 
         # Epsilon-greedy action selection
         if random.random() > eps:
-            return np.argmax(action_values.cpu().data.numpy())
+            choice = np.argmax(action_values.cpu().data.numpy())
         else:
-            return random.choice(np.arange(self.action_size))
+            choice = random.choice(np.arange(self.action_size))
+        print('Model choose action=' + str(choice))
+        return choice
 
 
 	########################################################

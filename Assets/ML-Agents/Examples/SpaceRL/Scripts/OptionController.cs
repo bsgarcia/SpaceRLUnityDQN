@@ -32,7 +32,8 @@ public class OptionController : MonoBehaviour
             "GameController");
         gameController = gameControllerObject.GetComponent<GameController>();
         spaceAgent = GameObject.FindWithTag("agent").GetComponent<SpaceAgent>();
-
+        // link this object to the gameController;
+        gameController.SetOptionController(this);
     }
 
 
@@ -54,11 +55,6 @@ public class OptionController : MonoBehaviour
 
             // record reaction time
             st.Stop();
-
-
-            // link this object to the gameController;
-            gameController.SetOptionController(this);
-
 
             // explosion of the asteroid
             Instantiate(explosion, transform.localPosition, transform.localRotation);
