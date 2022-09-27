@@ -23,14 +23,30 @@ public class SpaceAcademy : Academy
         //     }
         //     gameController.options.Clear();
         // }
+        if (resetCount > 0) {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            StartCoroutine(ResetDelayed());
+        } else {
 
+            agents = GameObject.FindGameObjectsWithTag("agent");
+            agent = GameObject.FindWithTag("agent").GetComponent<SpaceAgent>();
+            gameController = GameObject.FindWithTag("GameController").GetComponent<GameController>();
+            gameController.Run();
+            Debug.Log("SpaceAcademy.cs: Reset Env...");
+            resetCount++;
+        }
+
+    }
+
+    private IEnumerator ResetDelayed()
+    {
+        yield return new WaitForSeconds(1.6f);
         agents = GameObject.FindGameObjectsWithTag("agent");
         agent = GameObject.FindWithTag("agent").GetComponent<SpaceAgent>();
         gameController = GameObject.FindWithTag("GameController").GetComponent<GameController>();
         gameController.Run();
         Debug.Log("SpaceAcademy.cs: Reset Env...");
         resetCount++;
-
     }
 
     public override void AcademyStep()

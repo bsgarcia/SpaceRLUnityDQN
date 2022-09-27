@@ -373,7 +373,7 @@ class UnityEnvironment(object):
                         self._brains[b].vector_action_space_type,
                         str(vector_action[b])))
 
-            if True:
+            while True:
                 outputs = self.communicator.exchange(
                     self._generate_step_input(vector_action, memory, text_action)
                 )
@@ -381,12 +381,14 @@ class UnityEnvironment(object):
                 if outputs is None:
                     raise KeyboardInterrupt
                 rl_output = outputs.rl_output
-                print('RL OUTPUT')
-                print(rl_output)
+                #print('RL OUTPUT')
+                #print(rl_output)
                 s = self._get_state(rl_output)
                 
                 self._global_done = s[1]
-                print(s[0]['SpaceBrain'].text_observations)
+                #print(s[0]['SpaceBrain'].text_observations)
+                if s[0].get('SpaceBrain') is not None: 
+                    break
                 try:
                     if s[0]['SpaceBrain'].text_observations[0] == 'ready':
                         pass

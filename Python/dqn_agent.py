@@ -120,7 +120,7 @@ class Agent():
             choice = np.argmax(action_values.cpu().data.numpy())
         else:
             choice = random.choice(np.arange(self.action_size))
-        print('Model choose action=' + str(choice))
+        #print('Model choose action=' + str(choice))
         return choice
 
 

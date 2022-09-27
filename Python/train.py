@@ -42,7 +42,7 @@ STEP 1: Set the Training Parameters
         (here we set the solved_score a little higher than 13 [i.e., 14] to ensure robust learning).
     """
 num_episodes=2000
-epsilon=.2
+epsilon=1
 epsilon_min=0.05
 epsilon_decay=0.001
 scores = []
@@ -177,9 +177,9 @@ for i_episode in range(1, num_episodes+1):
     # Otherwise repeat until done == true 
     while True:
 
-        print('*' * 15)
-        print('NEW STEP')
-        print('*' * 15)
+        #print('*' * 15)
+        #print('NEW STEP')
+        #print('*' * 15)
 
         # determine epsilon-greedy action from current sate
         action = agent.act(state, epsilon)             
